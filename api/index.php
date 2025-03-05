@@ -1,3 +1,2 @@
 <?php
-
-echo "API coming soon";
+require_once __DIR__ . '/src/Routes/routes.php';

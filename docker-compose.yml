@@ -33,19 +33,28 @@ services:
       - 8001:3306
 
   api:
-    image: php:8.3-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: api
     depends_on:
       - db
     volumes:
       - ./api/:/var/www/html/
+    environment:
+        DB_HOST: db
+        DB_NAME: course_catalog
+        DB_USER: test_user
+        DB_PASS: test_password
     stdin_open: true
     tty: true
     hostname: api.cc.localhost
     labels:
       - traefik.http.routers.api.rule=Host(`api.cc.localhost`)
   front:
-    image: php:8.3-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: front
     depends_on:
       - api

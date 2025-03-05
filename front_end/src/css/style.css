@@ -1,0 +1,46 @@
+.truncate-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .truncate-title {
+        white-space: nowrap;        /* Запрещает перенос строк */
+        overflow: hidden;           /* Скрывает переполненный текст */
+        text-overflow: ellipsis;    /* Добавляет многоточие в конце */
+    }
+
+    .truncate-text {
+        display: -webkit-box;           /* Устанавливает контейнер для обрезки */
+        -webkit-line-clamp: 2;          /* Ограничивает текст двумя строками */
+        -webkit-box-orient: vertical;   /* Устанавливает вертикальное направление */
+        overflow: hidden;               /* Скрывает лишний текст */
+        text-overflow: ellipsis;
+    }
+}
+
+#categories-button button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 24px;
+    height: 18px;
+}
+
+#categories-button.opened button #hamburger-icon:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 3px;
+}
+
+#categories-button.opened button #hamburger-icon:nth-child(2) {
+    opacity: 0;
+}
+
+#categories-button.opened button #hamburger-icon:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -3px;
+}

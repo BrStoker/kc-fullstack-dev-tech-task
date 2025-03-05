@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Разрешить CORS для всех источников
+Header set Access-Control-Allow-Origin "*"
+
+# Разрешить методы (например, GET, POST)
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+
+# Разрешить необходимые заголовки
+Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+
+# Разрешить кэширование предзапросов
+Header set Access-Control-Max-Age "3600"

@@ -31,6 +31,7 @@ services:
       - traefik.tcp.services.mysql.loadbalancer.server.port=3306
     ports:
       - 8001:3306
+    command: bash -c "php /var/www/html/migrate.php && apache2-foreground"
 
   api:
     build:
